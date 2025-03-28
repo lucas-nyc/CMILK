@@ -1,17 +1,15 @@
 clear
 % Initialize variables
-manual_annotated_cleaned_v2 = readtable('all_tbl_manual_annotated_v2_cleaned.csv'); 
-load('landmark_occlusion_simulation_results.mat');
+groundtruth = readtable('groundtruth.csv'); 
+load('simulation_results.mat');
 rng(9);
-seed_state = rng;
-save('random_seed.mat', 'seed_state');
 
 methods = {'CMILK', 'Mean Imputation', 'Moving Median', ...
            'Moving Mean', 'KNN Imputation', 'Linear Interpolation', ...
            'Linear Regression'};
 
 n_combinations = 65;
-data = table2array(manual_annotated_cleaned_v2); 
+data = table2array(groundtruth); 
 data_test_missing_sets = cell(n_combinations, 1);
 
 n_rows = 135; 
@@ -29,7 +27,7 @@ new_results_MCAR = table([], [], [], [], [], 'VariableNames', {'Method', 'Set_id
 
 for set_idx = 1:n_combinations
     fprintf('Processing combination %d\n', set_idx);
-    data_test_missing = manual_annotated_cleaned_v2;
+    data_test_missing = groundtruth;
     start_idx = set_idx;
     for row_idx = 1:n_rows
         combination_idx = mod(start_idx - 1 + row_idx - 1, n_combinations) + 1;
