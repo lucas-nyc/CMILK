@@ -66,7 +66,7 @@ end
 
 fprintf('Done initializing variables\n');
 
-%% MCAR Experiment
+% MCAR Experiment
 fprintf('Starting MCAR experiment\n');
 
 for set_idx = 1:numel(dataset_missing_mcar)
@@ -334,7 +334,7 @@ end
 
 fprintf('Done MCAR experiment\n');
 
-%% MNAR Experiment
+% MNAR Experiment
 
 fprintf('Starting MNAR experiment\n');
 
@@ -579,7 +579,7 @@ end
 fprintf('Done MNAR experiment\n');
 
 
-%% MEAN RESULTS MAE/RMSE (both)
+% MEAN RESULTS MAE/RMSE
 
 gainmice_results_set = readtable('imputation_results_mnar.csv');
 gainmice_results_mcar = readtable('imputation_results_mcar.csv');
