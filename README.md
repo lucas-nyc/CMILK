@@ -13,3 +13,6 @@ The code was created in Matlab R2023b, any older versions were not verified.
 1) Download dataset above and make sure it is in the same directory as experiments.m
 2) Run experiments.m in Matlab.
 3) Results will be displayed in command window.
+
+# Referencing
+If you make use of this code or CMILK in your work. Please cite this work as:
